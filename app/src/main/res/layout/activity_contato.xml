@@ -144,6 +144,5 @@
                 android:layout_height="match_parent"
                 android:text="Ativo" />
         </TableRow>
-
     </TableLayout>
 </android.support.constraint.ConstraintLayout>
