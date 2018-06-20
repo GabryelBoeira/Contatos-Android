@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Contatos</string>
+    <string name="action_settings">Settings</string>
+
+    <array name="tipos">
+        <item>Celular</item>
+        <item>Casa</item>
+    </array>
+
+    <array name="estados">
+        <item>Paraná</item>
+        <item>São Paulo</item>
+        <item>Santa Catarina</item>
+        <item>Rio Grande do Sul</item>
+
+    </array>
+</resources>
