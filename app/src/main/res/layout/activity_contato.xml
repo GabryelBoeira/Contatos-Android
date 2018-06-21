@@ -6,143 +6,156 @@
     android:layout_height="match_parent"
     tools:context=".ContatoActivity">
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TableRow
+        <ImageView
+            android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/ic_launcher_round" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@android:drawable/btn_star_big_on" />
-
-            <EditText
-                android:id="@+id/txtNome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="9"
-                android:hint="Nome"
-                android:inputType="textPersonName" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/btn_star_big_off"
-                android:layout_weight="1"/>
-
-            <Spinner
-                android:id="@+id/spTipo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="9"
-                android:entries="@array/tipos"/>
-        </TableRow>
-
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView3"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/stat_sys_phone_call_forward"
-                android:layout_weight="1"
-                android:onClick="ligar"/>
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/txtTelefone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="9"
-                android:ems="10"
-                android:inputType="phone" />
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/btn_star_big_on" />
 
-        </TableRow>
+                <EditText
+                    android:id="@+id/txtNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:hint="Nome"
+                    android:inputType="textPersonName" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            </TableRow>
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/ic_dialog_email"
-                android:layout_weight="1"
-                android:onClick="email"/>
-
-            <EditText
-                android:id="@+id/txtEmail"
+            <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="9"
-                android:ems="10"
-                android:inputType="textEmailAddress"/>
+                android:layout_height="wrap_content">
 
-        </TableRow>
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/btn_star_big_off" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+                <Spinner
+                    android:id="@+id/spTipo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="9"
+                    android:entries="@array/tipos" />
+            </TableRow>
 
-            <ImageView
-                android:id="@+id/imageView5"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/btn_star_big_off"
-                android:layout_weight="1"/>
+                android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/txtCidade"
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="ligar"
+                    app:srcCompat="@android:drawable/stat_sys_phone_call_forward" />
+
+                <EditText
+                    android:id="@+id/txtTelefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="9"
+                    android:ems="10"
+                    android:inputType="phone" />
+
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="9"
-                android:inputType="textPersonName" />
+                android:layout_height="match_parent">
 
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="email"
+                    app:srcCompat="@android:drawable/ic_dialog_email" />
 
-        </TableRow>
+                <EditText
+                    android:id="@+id/txtEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:ems="10"
+                    android:inputType="textEmailAddress" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            </TableRow>
 
-            <ImageView
-                android:id="@+id/imageView6"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/btn_star_big_off"
-                android:layout_weight="1"/>
+                android:layout_height="match_parent">
 
-            <Spinner
-                android:id="@+id/spEstado"
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                <EditText
+                    android:id="@+id/txtCidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="9"
+                    android:inputType="textPersonName" />
+
+
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="9"
-                android:entries="@array/estados"/>
-        </TableRow>
+                android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/btn_star_big_off" />
 
-            <CheckBox
-                android:id="@+id/checkAtivo"
+                <Spinner
+                    android:id="@+id/spEstado"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="9"
+                    android:entries="@array/estados" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Ativo" />
-        </TableRow>
-    </TableLayout>
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/checkAtivo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Ativo" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

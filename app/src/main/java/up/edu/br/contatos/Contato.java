@@ -9,6 +9,7 @@ public class Contato implements Serializable{
     private String tipo;
     private String numero;
     private String email;
+    private byte[] imagem;
 
     private String cidade;
     private String estado;
@@ -23,6 +24,13 @@ public class Contato implements Serializable{
         return id.equals(((Contato)o).getId());
     }
 
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
 
     public String toString(){
         return nome;

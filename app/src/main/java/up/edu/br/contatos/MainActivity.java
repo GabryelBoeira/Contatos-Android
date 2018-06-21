@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        new Conexao(getApplicationContext(), "contatos.db", null ,2);
+        new Conexao(getApplicationContext(), "contatos1.db", null ,4);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

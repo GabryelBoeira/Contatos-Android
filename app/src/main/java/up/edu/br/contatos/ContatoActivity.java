@@ -1,8 +1,12 @@
 package up.edu.br.contatos;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
@@ -17,6 +21,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 
 public class ContatoActivity extends AppCompatActivity {
 
@@ -38,7 +45,7 @@ public class ContatoActivity extends AppCompatActivity {
         Spinner spEstado = (Spinner) findViewById(R.id.spEstado);
 
         CheckBox checkAtivo = (CheckBox) findViewById(R.id.checkAtivo);
-
+        ImageView image = (ImageView) findViewById(R.id.image);
 
         Intent it = getIntent();
         if (it != null && it.hasExtra("contato")) {
@@ -55,9 +62,13 @@ public class ContatoActivity extends AppCompatActivity {
 
             checkAtivo.setChecked(contato.isAtivo());
 
+            //pegar imagem do banco
+            ByteArrayInputStream imagemStream = new ByteArrayInputStream(contato.getImagem());
+            Bitmap bitmap = BitmapFactory.decodeStream(imagemStream);
+            image.setImageBitmap(bitmap);
+
         }
         //adicionando acesso a camera.
-        ImageView image = (ImageView)findViewById(R.id.image);
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +98,8 @@ public class ContatoActivity extends AppCompatActivity {
 
             CheckBox checkAtivo = (CheckBox) findViewById(R.id.checkAtivo);
 
+            //image view
+            ImageView image = (ImageView)findViewById(R.id.image);
 
             if (contato == null) {
                 contato = new Contato();
@@ -101,6 +114,13 @@ public class ContatoActivity extends AppCompatActivity {
             contato.setEstado(spEstado.getSelectedItem().toString());
 
             contato.setAtivo(checkAtivo.isChecked());
+
+            //salvar foto
+            Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100,baos);
+            byte[] imagemInByte = baos.toByteArray();
+            contato.setImagem(imagemInByte);
 
             new ContatoDao().salvar(contato);
             contato = null;
@@ -145,6 +165,14 @@ public class ContatoActivity extends AppCompatActivity {
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Enviado email por intent");
 
         startActivity(Intent.createChooser(emailIntent, "Email do contato"));
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK){
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            ImageView image = (ImageView)findViewById(R.id.image);
+            image.setImageBitmap(photo);
+        }
     }
 
 }
